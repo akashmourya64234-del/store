@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinmee Nerds - Your Ultimate Hub for Anime, Cinema & Doraemon</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --bg-primary: #0A0E1A;
+    --bg-secondary: #0F1425;
+    --bg-card: #151B2E;
+    --purple: #8B5CF6;
+    --purple-light: #A78BFA;
+    --blue: #3B82F6;
+    --pink: #EC4899;
+    --text-primary: #FFFFFF;
+    --text-secondary: #94A3B8;
+    --border: rgba(255, 255, 255, 0.1);
+  }
+  
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Background Effects */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    right: -20%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -50%;
+    left: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Navigation */
+  nav {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+  
+  .logo-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  
+  .logo-text .brand {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  .logo-text .brand-sub {
+    color: var(--purple);
+    font-weight: 800;
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+  }
+  
+  .nav-menu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: var(--text-primary);
+  }
+  
+  .nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .btn-signin {
+    background: var(--purple);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  
+  .btn-signin:hover {
+    background: var(--purple-light);
+    transform: translateY(-2px);
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 80px 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content h1 .gradient-text {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-tagline {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  
+  .hero-desc {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .btn-primary {
+    background: var(--purple);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background: var(--purple-light);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .community-avatars {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .avatars {
+    display: flex;
+    margin-left: -10px;
+  }
+  
+  .avatars img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-primary);
+    margin-left: -10px;
+  }
+  
+  .community-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  
+  .community-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  
+  .hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-illustration {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+    border: 1px solid var(--border);
+  }
+  
+  /* Stats Section */
+  .stats {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-icon {
+    font-size: 32px;
+    color: var(--purple);
+    margin-bottom: 10px;
+  }
+  
+  .stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    display: block;
+  }
+  
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .stat-divider {
+    width: 1px;
+    background: var(--border);
+  }
+  
+  /* Section Headers */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .section-title::before {
+    content: '✦';
+    color: var(--purple);
+    font-size: 20px;
+  }
+  
+  .view-all {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .view-all:hover {
+    color: var(--text-primary);
+  }
+  
+  /* Trending Picks */
+  .trending-section {
+    margin-bottom: 80px;
+  }
+  
+  .trending-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .trending-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .trending-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--blue));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .trending-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+  }
+  
+  .trending-card:hover::before {
+    opacity: 1;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    margin-bottom: 16px;
+  }
+  
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .badge {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .badge-hot {
+    background: #EF4444;
+    color: white;
+  }
+  
+  .card-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  
+  .card-arrow {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 20px;
+    color: var(--text-secondary);
+    transition: all 0.3s;
+  }
+  
+  .trending-card:hover .card-arrow {
+    color: var(--purple);
+    transform: translateX(5px);
+  }
+  
+  /* Categories Section */
+  .categories-section {
+    margin-bottom: 80px;
+  }
+  
+  .category-tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .category-tab {
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .category-tab:hover,
+  .category-tab.active {
+    background: var(--purple);
+    color: white;
+    border-color: var(--purple);
+  }
+  
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .category-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+  }
+  
+  .category-image {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    margin-bottom: 16px;
+  }
+  
+  .category-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .badge-boys {
+    background: #06B6D4;
+    color: #000;
+  }
+  
+  .badge-girls {
+    background: #EC4899;
+    color: white;
+  }
+  
+  .category-subtitle {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  /* Special Deals Section */
+  .deals-section {
+    margin-bottom: 80px;
+  }
+  
+  .deals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  
+  .deal-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s;
+  }
+  
+  .deal-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--purple);
+  }
+  
+  .deal-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  
+  .deal-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .deal-subtitle {
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  
+  /* Features Section */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+  
+  .feature-item {
+    text-align: center;
+  }
+  
+  .feature-icon {
+    font-size: 40px;
+    color: var(--purple);
+    margin-bottom: 12px;
+  }
+  
+  .feature-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  
+  .feature-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  
+  /* Newsletter Section */
+  .newsletter {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.05));
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .newsletter h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .newsletter h2 .gradient-text {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .newsletter p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .newsletter-form input {
+    flex: 1;
+    padding: 14px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 14px;
+  }
+  
+  .newsletter-form input::placeholder {
+    color: var(--text-secondary);
+  }
+  
+  .newsletter-form button {
+    padding: 14px 32px;
+    background: var(--purple);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .newsletter-form button:hover {
+    background: var(--purple-light);
+    transform: translateY(-2px);
+  }
+  
+  .newsletter-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 60px 0 30px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+  }
+  
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .footer-desc {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s;
+  }
+  
+  .social-link:hover {
+    background: var(--purple);
+    color: white;
+    border-color: var(--purple);
+  }
+  
+  .footer-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: var(--text-primary);
+  }
+  
+  .footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 13px;
+  }
+  
+  .footer-bottom a {
+    color: var(--purple);
+    text-decoration: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 968px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    
+    .hero-buttons {
+      justify-content: center;
+    }
+    
+    .hero-illustration {
+      margin: 0 auto;
+    }
+    
+    .stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .trending-grid,
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .deals-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .nav-menu {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .hero-content h1 {
+      font-size: 36px;
+    }
+    
+    .trending-grid,
+    .categories-grid,
+    .deals-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .newsletter-form {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav>
+      <a href="#" class="logo">
+        <div class="logo-icon">🎬</div>
+        <div class="logo-text">
+          <span class="brand">CINMEE</span>
+          <span class="brand brand-sub">NERDS</span>
+        </div>
+      </a>
+      
+      <ul class="nav-menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#anime">Anime</a></li>
+        <li><a href="#cinema">Cinema</a></li>
+        <li><a href="#doraemon">Doraemon</a></li>
+        <li><a href="#cartoon">Cartoon</a></li>
+        <li><a href="#more">More</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="https://www.facebook.com/cinmeenerds" target="_blank" class="btn-signin">Sign In</a>
+      </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-tagline">YOUR ULTIMATE HUB FOR</div>
+        <h1>
+          <span class="gradient-text">ANIME. CINEMA.</span><br>
+          <span class="gradient-text">DORAEMON. CARTOON.</span>
+        </h1>
+        <p class="hero-desc">Curated content, trending picks, exclusive deals & everything nerdy – all in one place.</p>
+        <div class="hero-buttons">
+          <a href="#trending" class="btn-primary">Explore Now →</a>
+          <a href="https://www.facebook.com/cinmeenerds" target="_blank" class="btn-secondary">Join Community 👥</a>
+        </div>
+        <div class="community-avatars">
+          <div class="avatars">
+            <img src="https://i.pravatar.cc/150?img=1" alt="User">
+            <img src="https://i.pravatar.cc/150?img=2" alt="User">
+            <img src="https://i.pravatar.cc/150?img=3" alt="User">
+          </div>
+          <div class="community-text">
+            <strong>16K+</strong> Nerds Joined
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <div class="hero-illustration">
+          🎮🎬📺
+        </div>
+      </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stat-item">
+        <div class="stat-icon">👥</div>
+        <span class="stat-number">16K+</span>
+        <span class="stat-label">Followers</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-icon">▶️</div>
+        <span class="stat-number">19M+</span>
+        <span class="stat-label">Views</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-icon">⚡</div>
+        <span class="stat-number">14M+</span>
+        <span class="stat-label">Engaged</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-icon">🏆</div>
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Categories</span>
+      </div>
+    </section>
+    
+    <!-- Trending Picks -->
+    <section class="trending-section" id="trending">
+      <div class="section-header">
+        <h2 class="section-title">Trending Picks</h2>
+        <a href="#" class="view-all">View All Picks →</a>
+      </div>
+      
+      <div class="trending-grid">
+        <a href="https://amzn.to/4uh104k" target="_blank" class="trending-card">
+          <span class="card-arrow">→</span>
+          <div class="card-image">🛒</div>
+          <h3 class="card-title">
+            Doraemon Charger Cable
+            <span class="badge badge-hot">HOT</span>
+          </h3>
+          <p class="card-subtitle">Doraemon themed · Amazon.in</p>
+        </a>
+        
+        <a href="https://www.facebook.com/cinmeenerds" target="_blank" class="trending-card">
+          <span class="card-arrow">→</span>
+          <div class="card-image">📘</div>
+          <h3 class="card-title">Follow on Facebook</h3>
+          <p class="card-subtitle">Reels · Doraemon · Cartoon content</p>
+        </a>
+        
+        <a href="mailto:pgolukushwaha46@gmail.com" class="trending-card">
+          <span class="card-arrow">→</span>
+          <div class="card-image">✉️</div>
+          <h3 class="card-title">Brand Deals & Collabs</h3>
+          <p class="card-subtitle">Mail karo for collaborations</p>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Browse Categories -->
+    <section class="categories-section">
+      <div class="section-header">
+        <h2 class="section-title">Browse Categories</h2>
+        <div class="category-tabs">
+          <button class="category-tab active">For Boys</button>
+          <button class="category-tab">For Girls</button>
+        </div>
+      </div>
+      
+      <div class="categories-grid">
+        <a href="https://myntr.it/bJfYPY4" target="_blank" class="category-card">
+          <div class="category-image">👔</div>
+          <h3 class="category-title">
+            Boys Fashion Wear
+            <span class="badge badge-boys">BOYS</span>
+          </h3>
+          <p class="category-subtitle">Trendy styles · Myntra</p>
+        </a>
+        
+        <a href="https://fktr.in/m23osWi" target="_blank" class="category-card">
+          <div class="category-image">👟</div>
+          <h3 class="category-title">Footwear Collection</h3>
+          <p class="category-subtitle">Shoes & sneakers · Flipkart</p>
+        </a>
+        
+        <a href="https://fktr.in/3sb0cHV" target="_blank" class="category-card">
+          <div class="category-image">👗</div>
+          <h3 class="category-title">
+            Girls Special Pick
+            <span class="badge badge-girls">GIRLS</span>
+          </h3>
+          <p class="category-subtitle">Handpicked for you · Flipkart</p>
+        </a>
+        
+        <a href="#deals" class="category-card">
+          <div class="category-image">🎧</div>
+          <h3 class="category-title">Tech & Gadgets</h3>
+          <p class="category-subtitle">Latest tech · Great prices</p>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Special Deals -->
+    <section class="deals-section" id="deals">
+      <div class="section-header">
+        <h2 class="section-title">Special Deals</h2>
+      </div>
+      
+      <div class="deals-grid">
+        <a href="https://amzn.to/3P0tIYq" target="_blank" class="deal-card">
+          <span class="deal-icon">🎉</span>
+          <h3 class="deal-title">Birthday Theme Set</h3>
+          <p class="deal-subtitle">28 Pcs · Amazon</p>
+        </a>
+        
+        <a href="https://fktr.in/6Nr223p" target="_blank" class="deal-card">
+          <span class="deal-icon">⚡</span>
+          <h3 class="deal-title">Lightning Days</h3>
+          <p class="deal-subtitle">Limited time · Flipkart</p>
+        </a>
+        
+        <a href="https://fktr.in/Qc3B6sY" target="_blank" class="deal-card">
+          <span class="deal-icon">🕶️</span>
+          <h3 class="deal-title">Sunglasses</h3>
+          <p class="deal-subtitle">Trendy · Flipkart</p>
+        </a>
+        
+        <a href="https://fktr.in/Agw1620" target="_blank" class="deal-card">
+          <span class="deal-icon">⌚</span>
+          <h3 class="deal-title">Watches</h3>
+          <p class="deal-subtitle">Smart & analog</p>
+        </a>
+        
+        <a href="https://fktr.in/ga5671h" target="_blank" class="deal-card">
+          <span class="deal-icon">📚</span>
+          <h3 class="deal-title">Study Essentials</h3>
+          <p class="deal-subtitle">Books & stationery</p>
+        </a>
+        
+        <a href="https://amzn.to/4uLNhms" target="_blank" class="deal-card">
+          <span class="deal-icon">👻</span>
+          <h3 class="deal-title">Horror Collection</h3>
+          <p class="deal-subtitle">Unique · Amazon</p>
+        </a>
+        
+        <a href="https://amzn.to/4d3Xip1" target="_blank" class="deal-card">
+          <span class="deal-icon">🖼️</span>
+          <h3 class="deal-title">3D Poster</h3>
+          <p class="deal-subtitle">Digital print</p>
+        </a>
+        
+        <a href="https://amzn.to/4dE1fko" target="_blank" class="deal-card">
+          <span class="deal-icon">🎒</span>
+          <h3 class="deal-title">Special Bag</h3>
+          <p class="deal-subtitle">Premium quality</p>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="features">
+      <div class="feature-item">
+        <div class="feature-icon">📊</div>
+        <h3 class="feature-title">Daily</h3>
+        <p class="feature-desc">Fresh Content</p>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">📈</div>
+        <h3 class="feature-title">Trending</h3>
+        <p class="feature-desc">Every Week</p>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">💖</div>
+        <h3 class="feature-title">Curated</h3>
+        <p class="feature-desc">With Love</p>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">👥</div>
+        <h3 class="feature-title">Community</h3>
+        <p class="feature-desc">Driven</p>
+      </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <h2>DON'T MISS OUT ON <span class="gradient-text">ANYTHING NERDY!</span></h2>
+      <p>Get the best picks, deals & updates straight to your inbox.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe 📧</button>
+      </form>
+      <div class="newsletter-note">
+        <span>✅</span>
+        <span>No spam, only awesome content.</span>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">🎬</div>
+            <div class="logo-text">
+              <span class="brand">CINMEE</span>
+              <span class="brand brand-sub">NERDS</span>
+            </div>
+          </a>
+          <p class="footer-desc">Anime, Cinema, Doraemon & Cartoon – We've got you covered.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/cinmeenerds" target="_blank" class="social-link">📘</a>
+            <a href="#" class="social-link">📺</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">💬</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Explore</h3>
+          <ul class="footer-links">
+            <li><a href="#anime">Anime</a></li>
+            <li><a href="#cinema">Cinema</a></li>
+            <li><a href="#doraemon">Doraemon</a></li>
+            <li><a href="#cartoon">Cartoon</a></li>
+            <li><a href="#more">More</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Community</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="mailto:pgolukushwaha46@gmail.com">Collab With Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="mailto:pgolukushwaha46@gmail.com">Feedback</a></li>
+            <li><a href="#">Report</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2024 Cinmee Nerds. All rights reserved.</p>
+        <p>Made for Nerds. By Nerds. <a href="#">💜</a></p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
